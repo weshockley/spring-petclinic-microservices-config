@@ -11,6 +11,12 @@ spring:
   datasource:
     schema: classpath*:db/hsqldb/schema.sql
     data: classpath*:db/hsqldb/data.sql
+    url: jdbc:mysql://mysql-petclinic-7f7e94.mysql.database.azure.com:3306/petclinic?useSSL=true
+    username: myadmin
+    password: admin@Adm1n
+
+    
+    
   sleuth:
     sampler:
       probability: 1.0
@@ -52,6 +58,12 @@ management:
     export:
       prometheus:
         enabled: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-server:8761/eureka/
+  instance:
+    preferIpAddress: true
 
 # Chaos Engineering
 ---
@@ -84,3 +96,4 @@ spring:
     username: root
     password: petclinic
     initialization-mode: ALWAYS
+
